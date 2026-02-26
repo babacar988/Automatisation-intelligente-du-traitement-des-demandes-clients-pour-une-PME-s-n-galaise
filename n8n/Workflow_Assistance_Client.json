@@ -1,0 +1,657 @@
+{
+  "name": "My workflow 8",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "📩 Supérette Dakar — Envoyez votre demande",
+        "formDescription": "Nous traitons votre message automatiquement et vous répondons rapidement.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "nom",
+              "placeholder": "Ex : Amadou Diallo",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "email",
+              "fieldType": "email",
+              "placeholder": "Ex : amadou@email.sn",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "telephone",
+              "placeholder": "Ex : +221 77 000 00 00"
+            },
+            {
+              "fieldLabel": "texte",
+              "fieldType": "textarea",
+              "placeholder": "Ex : Avez-vous du riz parfumé en stock ?",
+              "requiredField": true
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "cfa7d831-6129-4bcc-8cba-d9e88c8f7b33",
+      "name": "📥 Formulaire Client",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -976,
+        304
+      ],
+      "webhookId": "61c3924e-a31c-43f7-ad92-0d7b3e35f0d8"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "nom",
+              "name": "nom",
+              "value": "={{ $json['nom'] }}",
+              "type": "string"
+            },
+            {
+              "id": "email",
+              "name": "email",
+              "value": "={{ $json['email'] }}",
+              "type": "string"
+            },
+            {
+              "id": "telephone",
+              "name": "telephone",
+              "value": "={{ $json['telephone'] || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "texte",
+              "name": "texte",
+              "value": "={{ $json['texte'] }}",
+              "type": "string"
+            },
+            {
+              "id": "req_id",
+              "name": "req_id",
+              "value": "=REQ-{{ new Date().getTime() }}",
+              "type": "string"
+            },
+            {
+              "id": "timestamp",
+              "name": "timestamp",
+              "value": "={{ new Date().toISOString() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "18a10321-ec28-49e6-a637-73b9e1967713",
+      "name": "🔧 Extraire Champs",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -736,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://calorifacient-marlin-sequential.ngrok-free.dev/predict",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "message",
+              "value": "={{ $json.texte }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ca502041-973d-4fb4-8c0e-6127943dce97",
+      "name": "🤖 Classifier ML",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -496,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "nom",
+              "name": "nom",
+              "value": "={{ $('🔧 Extraire Champs').item.json.nom }}",
+              "type": "string"
+            },
+            {
+              "id": "email",
+              "name": "email",
+              "value": "={{ $('🔧 Extraire Champs').item.json.email }}",
+              "type": "string"
+            },
+            {
+              "id": "telephone",
+              "name": "telephone",
+              "value": "={{ $('🔧 Extraire Champs').item.json.telephone }}",
+              "type": "string"
+            },
+            {
+              "id": "texte",
+              "name": "texte",
+              "value": "={{ $('🔧 Extraire Champs').item.json.texte }}",
+              "type": "string"
+            },
+            {
+              "id": "req_id",
+              "name": "req_id",
+              "value": "={{ $('🔧 Extraire Champs').item.json.req_id }}",
+              "type": "string"
+            },
+            {
+              "id": "timestamp",
+              "name": "timestamp",
+              "value": "={{ $('🔧 Extraire Champs').item.json.timestamp }}",
+              "type": "string"
+            },
+            {
+              "id": "classe",
+              "name": "classe",
+              "value": "={{ $json.classe }}",
+              "type": "string"
+            },
+            {
+              "id": "confiance",
+              "name": "confiance",
+              "value": "={{ $json.confiance }}",
+              "type": "number"
+            },
+            {
+              "id": "reponse",
+              "name": "reponse_client",
+              "value": "={{ $json.reponse_client }}",
+              "type": "string"
+            },
+            {
+              "id": "action",
+              "name": "action",
+              "value": "={{ $json.action_automatique }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7bfd3582-959d-433f-8a5e-ed89f31dd547",
+      "name": "📝 Fusionner Données",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -256,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.classe }}",
+              "rightValue": "Urgence",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "id": "fb1647d6-e362-4089-9aff-e0ea81ff6122"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "96438196-7a5f-4108-bd55-f3fc435cd09a",
+      "name": "🚨 Urgence ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        0,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.classe }}",
+              "rightValue": "Réclamation",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8f9f80c3-54b5-4308-b3f1-316adf49ccae",
+      "name": "⚠️ Réclamation ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        0,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.classe }}",
+              "rightValue": "Commande",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "befe2413-f407-4c65-80ab-bc55a3ae3480",
+      "name": "🛒 Commande ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        0,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ACTION URGENCE — Notification immédiate responsable\nconst d = $input.first().json;\nreturn [{ json: {\n  req_id:       d.req_id,\n  nom:          d.nom,\n  email:        d.email,\n  telephone:    d.telephone,\n  texte:        d.texte,\n  classe:       d.classe,\n  confiance:    d.confiance,\n  reponse_client: d.reponse_client,\n  label: '🚨 URGENCE',\n  sujet_email: '🚨 [URGENT] ' + d.req_id + ' — ' + d.nom,\n  corps_email: 'ALERTE URGENTE\\n\\nID : ' + d.req_id + '\\nClient : ' + d.nom + '\\nContact : ' + d.email + ' / ' + d.telephone + '\\n\\nMessage client :\\n\"' + d.texte + '\"\\n\\nConfiance ML : ' + d.confiance + '%\\n\\n⚡ INTERVENTION IMMÉDIATE REQUISE',\n  destinataire: 'bsarr@groupeisi.com',\n  reponse_finale: d.reponse_client\n}}];"
+      },
+      "id": "36e2fc26-ff50-4be3-8168-f305970257c4",
+      "name": "🚨 Préparer Urgence",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        272,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ACTION RÉCLAMATION — Ticket + transfert service client\nconst d = $input.first().json;\nconst ticket = 'REC-' + Date.now();\nreturn [{ json: {\n  req_id:       d.req_id,\n  nom:          d.nom,\n  email:        d.email,\n  telephone:    d.telephone,\n  texte:        d.texte,\n  classe:       d.classe,\n  confiance:    d.confiance,\n  reponse_client: d.reponse_client,\n  label: '⚠️ RÉCLAMATION',\n  ticket: ticket,\n  sujet_email: '⚠️ [RÉCLAMATION] Ticket ' + ticket + ' — ' + d.nom,\n  corps_email: 'NOUVELLE RÉCLAMATION\\n\\nTicket : ' + ticket + '\\nID : ' + d.req_id + '\\nClient : ' + d.nom + '\\nContact : ' + d.email + ' / ' + d.telephone + '\\n\\nMessage client :\\n\"' + d.texte + '\"\\n\\nConfiance ML : ' + d.confiance + '%\\n\\n→ Traitement sous 24h requis',\n  destinataire: 'dieynasow92@gmail.com',\n  reponse_finale: d.reponse_client\n}}];"
+      },
+      "id": "f63b906d-90c8-4a74-878a-234f216b093e",
+      "name": "⚠️ Préparer Réclamation",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        272,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ACTION COMMANDE — Enregistrement + notification stock\nconst d = $input.first().json;\nconst cmd = 'CMD-' + Date.now();\nreturn [{ json: {\n  req_id:       d.req_id,\n  nom:          d.nom,\n  email:        d.email,\n  telephone:    d.telephone,\n  texte:        d.texte,\n  classe:       d.classe,\n  confiance:    d.confiance,\n  reponse_client: d.reponse_client,\n  label: '🛒 COMMANDE',\n  numero_cmd: cmd,\n  sujet_email: '🛒 [COMMANDE] ' + cmd + ' — ' + d.nom,\n  corps_email: 'NOUVELLE COMMANDE\\n\\nCommande : ' + cmd + '\\nID : ' + d.req_id + '\\nClient : ' + d.nom + '\\nContact : ' + d.email + ' / ' + d.telephone + '\\n\\nMessage client :\\n\"' + d.texte + '\"\\n\\nConfiance ML : ' + d.confiance + '%\\n\\n→ Confirmer disponibilité et délai de livraison',\n  destinataire: 'Mariemediop2200@gmail.com',\n  reponse_finale: d.reponse_client\n}}];"
+      },
+      "id": "dae7a812-559d-4eaa-b0b8-0b9fd98ae223",
+      "name": "🛒 Préparer Commande",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        272,
+        528
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ACTION INFORMATION — Réponse automatique uniquement\nconst d = $input.first().json;\nreturn [{ json: {\n  req_id:       d.req_id,\n  nom:          d.nom,\n  email:        d.email,\n  telephone:    d.telephone,\n  texte:        d.texte,\n  classe:       d.classe,\n  confiance:    d.confiance,\n  reponse_client: d.reponse_client,\n  label: 'ℹ️ INFORMATION',\n  sujet_email: null,\n  corps_email: null,\n  destinataire: null,\n  reponse_finale: d.reponse_client\n}}];"
+      },
+      "id": "de192e49-5a1c-4ae4-85e5-ce6bb670833f",
+      "name": "ℹ️ Préparer Information",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        272,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ✅ SOLUTION : lire les données depuis 📝 Fusionner Données (toujours disponible)\n// + le label depuis le nœud Préparer qui nous a envoyé l'input\nconst input = $input.first().json;\n\n// Données brutes du formulaire + ML (toujours disponibles via Fusionner)\nconst fusionner = $('📝 Fusionner Données').item.json;\n\n// Date/heure actuelles\nconst now = new Date();\nconst pad = (n) => String(n).padStart(2, '0');\nconst dateStr = pad(now.getDate()) + '/' + pad(now.getMonth()+1) + '/' + now.getFullYear();\nconst timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes());\n\n// Échappement CSV\nconst esc = (v) => {\n  const s = String(v ?? '').replace(/\"/g, '\"\"');\n  return (s.includes(',') || s.includes('\"') || s.includes('\\n')) ? `\"${s}\"` : s;\n};\n\n// label : disponible dans input (nœud Préparer) ou fallback sur classe\nconst label = input.label ?? fusionner.classe ?? '';\n\nconst headers = 'ID;Date;Heure;Nom;Email;Téléphone;Classe ML;Confiance (%);Message;Action;Statut';\nconst row = [\n  fusionner.req_id      ?? '',\n  dateStr,\n  timeStr,\n  fusionner.nom         ?? '',\n  fusionner.email       ?? '',\n  fusionner.telephone   ?? '',\n  fusionner.classe      ?? '',\n  fusionner.confiance   ?? '',\n  fusionner.texte       ?? '',\n  label,\n  'Traité'\n].map(esc).join(';');\n\nconst csvContent = '\\uFEFF' + headers + '\\n' + row + '\\n';\n\nconst binaryData = await this.helpers.prepareBinaryData(\n  Buffer.from(csvContent, 'utf8'),\n  'historique_demandes.csv',\n  'text/csv'\n);\n\nreturn [{\n  json: { success: true, req_id: fusionner.req_id },\n  binary: { data: binaryData }\n}];\n"
+      },
+      "id": "e92a2d49-671f-4f78-a7d3-ca74691fbec9",
+      "name": "💾 Préparer CSV",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "fileName": "=historique_demandes.csv",
+        "options": {}
+      },
+      "id": "be64bd4e-ee39-424b-9775-6ae529e9e40a",
+      "name": "📁 Écrire CSV",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "6e838111-da8f-426a-9175-203dd303b67f",
+      "name": "✅ Confirmation Client",
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.2,
+      "position": [
+        1808,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "sarr86808@gmail.com",
+        "toEmail": "bsarr@groupeisi.com",
+        "subject": "={{ $json.sujet_email }}",
+        "emailFormat": "text",
+        "text": "={{ $json.corps_email }}",
+        "options": {}
+      },
+      "id": "086da6a6-5126-47fe-8a88-36e458dc070a",
+      "name": "📧 Email — Urgence",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        544,
+        64
+      ],
+      "webhookId": "66686a50-8dee-4119-ac67-c5e8276147fa",
+      "credentials": {
+        "smtp": {
+          "id": "sDXu4WMPhzL4h8vt",
+          "name": "SMTP account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "sarr86808@gmail.com",
+        "toEmail": "dieynasow92@gmail.com",
+        "subject": "={{ $json.sujet_email }}",
+        "emailFormat": "text",
+        "text": "={{ $json.corps_email }}",
+        "options": {}
+      },
+      "id": "d4b21702-73b0-49fd-8699-14384e66e3bb",
+      "name": "📧 Email — Réclamation",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        544,
+        304
+      ],
+      "webhookId": "60864912-c254-4fce-90e7-50bda1c342f9",
+      "credentials": {
+        "smtp": {
+          "id": "sDXu4WMPhzL4h8vt",
+          "name": "SMTP account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "sarr86808@gmail.com",
+        "toEmail": "Mariemediop2200@gmail.com",
+        "subject": "={{ $json.sujet_email }}",
+        "emailFormat": "text",
+        "text": "={{ $json.corps_email }}",
+        "options": {}
+      },
+      "id": "58c28f40-d409-4bb7-a26d-46119238eeb0",
+      "name": "📧 Email — Commande",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        544,
+        608
+      ],
+      "webhookId": "44e0d4cf-4e2f-43f2-ac0c-dd57a2879b40",
+      "credentials": {
+        "smtp": {
+          "id": "sDXu4WMPhzL4h8vt",
+          "name": "SMTP account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "📥 Formulaire Client": {
+      "main": [
+        [
+          {
+            "node": "🔧 Extraire Champs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔧 Extraire Champs": {
+      "main": [
+        [
+          {
+            "node": "🤖 Classifier ML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🤖 Classifier ML": {
+      "main": [
+        [
+          {
+            "node": "📝 Fusionner Données",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📝 Fusionner Données": {
+      "main": [
+        [
+          {
+            "node": "🚨 Urgence ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚨 Urgence ?": {
+      "main": [
+        [
+          {
+            "node": "🚨 Préparer Urgence",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "⚠️ Réclamation ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⚠️ Réclamation ?": {
+      "main": [
+        [
+          {
+            "node": "⚠️ Préparer Réclamation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "🛒 Commande ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🛒 Commande ?": {
+      "main": [
+        [
+          {
+            "node": "🛒 Préparer Commande",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ℹ️ Préparer Information",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚨 Préparer Urgence": {
+      "main": [
+        [
+          {
+            "node": "📧 Email — Urgence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⚠️ Préparer Réclamation": {
+      "main": [
+        [
+          {
+            "node": "📧 Email — Réclamation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🛒 Préparer Commande": {
+      "main": [
+        [
+          {
+            "node": "📧 Email — Commande",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📧 Email — Urgence": {
+      "main": [
+        [
+          {
+            "node": "💾 Préparer CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📧 Email — Réclamation": {
+      "main": [
+        [
+          {
+            "node": "💾 Préparer CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📧 Email — Commande": {
+      "main": [
+        [
+          {
+            "node": "💾 Préparer CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ℹ️ Préparer Information": {
+      "main": [
+        [
+          {
+            "node": "💾 Préparer CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💾 Préparer CSV": {
+      "main": [
+        [
+          {
+            "node": "📁 Écrire CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "2aee78b1-26bb-4196-b1df-4817a2625876",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d2a983c213e86ff5f63607d29d91923ea78de806751669a6de4eb354d5039524"
+  },
+  "id": "XLHJEvXpS0wpWYJW",
+  "tags": []
+}

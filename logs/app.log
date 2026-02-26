@@ -1,0 +1,152 @@
+2026-02-22 14:42:03 | INFO     | __main__:30 - ╔══════════════════════════════════════════════╗
+2026-02-22 14:42:03 | INFO     | __main__:31 - ║   PME Classifier — Entraînement du modèle   ║
+2026-02-22 14:42:03 | INFO     | __main__:32 - ╚══════════════════════════════════════════════╝
+2026-02-22 14:42:03 | INFO     | src.data.loader:50 - Chargement du dataset : C:\projets\ExamML\data\raw\dataset.csv
+2026-02-22 14:42:03 | INFO     | src.data.loader:111 - Validation du dataset : OK
+2026-02-22 14:42:03 | INFO     | src.data.loader:115 - ── Distribution des classes ──────────────────────
+2026-02-22 14:42:03 | INFO     | src.data.loader:119 -    Information     :  60 exemples (32.4%)
+2026-02-22 14:42:03 | INFO     | src.data.loader:119 -    Réclamation     :  45 exemples (24.3%)
+2026-02-22 14:42:03 | INFO     | src.data.loader:119 -    Commande        :  45 exemples (24.3%)
+2026-02-22 14:42:03 | INFO     | src.data.loader:119 -    Urgence         :  35 exemples (18.9%)
+2026-02-22 14:42:03 | INFO     | src.data.loader:120 -    TOTAL           : 185 exemples
+2026-02-22 14:42:03 | INFO     | src.data.loader:121 - ──────────────────────────────────────────────────
+2026-02-22 14:42:03 | SUCCESS  | src.data.loader:59 - 185 exemples chargés avec succès.
+2026-02-22 14:42:03 | INFO     | src.model.trainer:60 - Démarrage de l'entraînement du modèle...
+2026-02-22 14:42:03 | INFO     | src.model.trainer:102 - Données découpées — Train : 148 | Test : 37
+2026-02-22 14:42:03 | INFO     | src.model.trainer:69 - Pipeline construit : TF-IDF → Régression Logistique
+2026-02-22 14:42:03 | SUCCESS  | src.model.trainer:73 - Modèle entraîné avec succès !
+2026-02-22 14:42:03 | INFO     | src.model.trainer:145 - ── Résultats sur le jeu de test ─────────────────
+2026-02-22 14:42:03 | INFO     | src.model.trainer:146 -    Accuracy globale : 86.5%
+2026-02-22 14:42:03 | INFO     | src.model.trainer:147 - ── Rapport par classe ───────────────────────────
+2026-02-22 14:42:03 | INFO     | src.model.trainer:152 -                  precision    recall  f1-score   support
+2026-02-22 14:42:03 | INFO     | src.model.trainer:152 -        Commande       1.00      0.89      0.94         9
+2026-02-22 14:42:03 | INFO     | src.model.trainer:152 -     Information       0.92      0.92      0.92        12
+2026-02-22 14:42:03 | INFO     | src.model.trainer:152 -     Réclamation       0.80      0.89      0.84         9
+2026-02-22 14:42:03 | INFO     | src.model.trainer:152 -         Urgence       0.71      0.71      0.71         7
+2026-02-22 14:42:03 | INFO     | src.model.trainer:152 -        accuracy                           0.86        37
+2026-02-22 14:42:03 | INFO     | src.model.trainer:152 -       macro avg       0.86      0.85      0.85        37
+2026-02-22 14:42:03 | INFO     | src.model.trainer:152 -    weighted avg       0.87      0.86      0.87        37
+2026-02-22 14:42:03 | INFO     | src.model.trainer:154 - ── Matrice de confusion ─────────────────────────
+2026-02-22 14:42:03 | INFO     | src.model.trainer:159 -            Comm    Info    Récl    Urge
+2026-02-22 14:42:03 | INFO     | src.model.trainer:161 -    Commande         8       0       0       1
+2026-02-22 14:42:03 | INFO     | src.model.trainer:161 -    Information      0      11       1       0
+2026-02-22 14:42:03 | INFO     | src.model.trainer:161 -    Réclamation      0       0       8       1
+2026-02-22 14:42:03 | INFO     | src.model.trainer:161 -    Urgence          0       1       1       5
+2026-02-22 14:42:03 | INFO     | src.model.trainer:162 - ─────────────────────────────────────────────────
+2026-02-22 14:42:03 | INFO     | src.model.trainer:166 - Validation croisée 5 folds en cours...
+2026-02-22 14:42:03 | INFO     | src.model.trainer:172 - F1-score moyen (CV-5) : 87.9% ± 3.3%
+2026-02-22 14:42:03 | SUCCESS  | src.model.trainer:88 - Modèle sauvegardé : C:\projets\ExamML\model\saved\classifier.joblib
+2026-02-22 14:42:03 | INFO     | __main__:46 - ╔══════════════════════════════════════════════╗
+2026-02-22 14:42:03 | INFO     | __main__:47 - ║   Entraînement terminé avec succès !         ║
+2026-02-22 14:42:03 | INFO     | __main__:48 - ║   Lancez maintenant : python run_api.py      ║
+2026-02-22 14:42:03 | INFO     | __main__:49 - ╚══════════════════════════════════════════════╝
+2026-02-22 14:43:03 | INFO     | __main__:27 - ╔══════════════════════════════════════════════╗
+2026-02-22 14:43:03 | INFO     | __main__:28 - ║      PME Classifier — Lancement de l'API     ║
+2026-02-22 14:43:03 | INFO     | __main__:29 - ║  http://0.0.0.0:8000                        ║
+2026-02-22 14:43:03 | INFO     | __main__:30 - ║  Docs : http://localhost:8000/docs             ║
+2026-02-22 14:43:03 | INFO     | __main__:31 - ╚══════════════════════════════════════════════╝
+2026-02-22 14:43:04 | INFO     | src.api.app:36 - ══════════════════════════════════════════
+2026-02-22 14:43:04 | INFO     | src.api.app:37 -   Démarrage : PME Classifier API v1.0.0
+2026-02-22 14:43:04 | INFO     | src.api.app:38 - ══════════════════════════════════════════
+2026-02-22 14:43:05 | SUCCESS  | src.model.predictor:71 - Modèle chargé : C:\projets\ExamML\model\saved\classifier.joblib
+2026-02-22 14:49:07 | INFO     | src.api.routes:120 - Prédiction : 'Urgent ! Le paiement par Wave ne fonctionne pas....' → Urgence (52.5%)
+2026-02-22 15:06:49 | INFO     | src.api.routes:120 - Prédiction : 'Bonjour, avez-vous du riz parfumé en stock ?...' → Information (63.4%)
+2026-02-22 15:08:17 | INFO     | src.api.routes:120 - Prédiction : 'Bonjour, avez-vous du riz parfumé en stock ?...' → Information (63.4%)
+2026-02-22 15:09:39 | INFO     | src.api.routes:120 - Prédiction : 'Bonjour, avez-vous du riz parfumé en stock ?...' → Information (63.4%)
+2026-02-22 15:13:28 | INFO     | src.api.routes:120 - Prédiction : 'Bonjour, je voudrais faire une commande de boisson...' → Commande (54.1%)
+2026-02-22 15:14:51 | INFO     | src.api.routes:120 - Prédiction : 'Bonjour, je voudrais signaler que je n'ai pas recu...' → Réclamation (42.6%)
+2026-02-22 17:21:31 | INFO     | src.api.routes:120 - Prédiction : 'je voudrais de l'aide pour l'utilisation d'un serv...' → Commande (47.0%)
+2026-02-22 17:23:00 | INFO     | src.api.routes:120 - Prédiction : 'est ce que vous avez des fruits...' → Information (82.3%)
+2026-02-22 17:24:49 | INFO     | src.api.routes:120 - Prédiction : 'au secour, je suis attaque...' → Réclamation (30.7%)
+2026-02-22 17:29:30 | INFO     | src.api.routes:120 - Prédiction : 'avez-vous du riz en stock?...' → Information (63.0%)
+2026-02-22 17:30:42 | INFO     | src.api.routes:120 - Prédiction : 'est ce que vous vendez de fruits...' → Information (76.4%)
+2026-02-22 17:36:25 | INFO     | src.api.routes:120 - Prédiction : 'sos , je veux veux de l'aide...' → Commande (46.9%)
+2026-02-22 17:39:50 | INFO     | src.api.routes:120 - Prédiction : 'je veux vendre un truc...' → Commande (56.3%)
+2026-02-22 18:36:43 | INFO     | src.api.app:52 - Arrêt de l'application.
+2026-02-25 09:59:07 | INFO     | __main__:27 - ╔══════════════════════════════════════════════╗
+2026-02-25 09:59:07 | INFO     | __main__:28 - ║      PME Classifier — Lancement de l'API     ║
+2026-02-25 09:59:07 | INFO     | __main__:29 - ║  http://0.0.0.0:8000                        ║
+2026-02-25 09:59:07 | INFO     | __main__:30 - ║  Docs : http://localhost:8000/docs             ║
+2026-02-25 09:59:07 | INFO     | __main__:31 - ╚══════════════════════════════════════════════╝
+2026-02-25 09:59:11 | INFO     | src.api.app:36 - ══════════════════════════════════════════
+2026-02-25 09:59:11 | INFO     | src.api.app:37 -   Démarrage : PME Classifier API v1.0.0
+2026-02-25 09:59:11 | INFO     | src.api.app:38 - ══════════════════════════════════════════
+2026-02-25 09:59:23 | SUCCESS  | src.model.predictor:71 - Modèle chargé : C:\projets\ExamML\model\saved\classifier.joblib
+2026-02-25 10:18:07 | INFO     | src.api.routes:120 - Prédiction : 'Urgent ! Le paiement par Wave ne fonctionne pas....' → Urgence (52.5%)
+2026-02-25 11:02:15 | INFO     | src.api.routes:120 - Prédiction : 'Bonjour, je veux une machine à laver...' → Commande (52.4%)
+2026-02-25 11:21:01 | INFO     | src.api.app:52 - Arrêt de l'application.
+2026-02-25 14:16:57 | INFO     | __main__:27 - ╔══════════════════════════════════════════════╗
+2026-02-25 14:16:57 | INFO     | __main__:28 - ║      PME Classifier — Lancement de l'API     ║
+2026-02-25 14:16:57 | INFO     | __main__:29 - ║  http://0.0.0.0:8000                        ║
+2026-02-25 14:16:57 | INFO     | __main__:30 - ║  Docs : http://localhost:8000/docs             ║
+2026-02-25 14:16:57 | INFO     | __main__:31 - ╚══════════════════════════════════════════════╝
+2026-02-25 14:17:03 | INFO     | src.api.app:36 - ══════════════════════════════════════════
+2026-02-25 14:17:03 | INFO     | src.api.app:37 -   Démarrage : PME Classifier API v1.0.0
+2026-02-25 14:17:03 | INFO     | src.api.app:38 - ══════════════════════════════════════════
+2026-02-25 14:17:11 | SUCCESS  | src.model.predictor:71 - Modèle chargé : C:\projets\ExamML\model\saved\classifier.joblib
+2026-02-25 14:17:17 | INFO     | src.api.app:52 - Arrêt de l'application.
+2026-02-25 14:18:38 | INFO     | __main__:27 - ╔══════════════════════════════════════════════╗
+2026-02-25 14:18:38 | INFO     | __main__:28 - ║      PME Classifier — Lancement de l'API     ║
+2026-02-25 14:18:38 | INFO     | __main__:29 - ║  http://0.0.0.0:8000                        ║
+2026-02-25 14:18:38 | INFO     | __main__:30 - ║  Docs : http://localhost:8000/docs             ║
+2026-02-25 14:18:38 | INFO     | __main__:31 - ╚══════════════════════════════════════════════╝
+2026-02-25 14:18:39 | INFO     | src.api.app:36 - ══════════════════════════════════════════
+2026-02-25 14:18:39 | INFO     | src.api.app:37 -   Démarrage : PME Classifier API v1.0.0
+2026-02-25 14:18:39 | INFO     | src.api.app:38 - ══════════════════════════════════════════
+2026-02-25 14:18:42 | SUCCESS  | src.model.predictor:71 - Modèle chargé : C:\projets\ExamML\model\saved\classifier.joblib
+2026-02-25 14:59:52 | INFO     | src.api.app:52 - Arrêt de l'application.
+2026-02-25 14:59:56 | INFO     | __main__:27 - ╔══════════════════════════════════════════════╗
+2026-02-25 14:59:56 | INFO     | __main__:28 - ║      PME Classifier — Lancement de l'API     ║
+2026-02-25 14:59:56 | INFO     | __main__:29 - ║  http://0.0.0.0:8000                        ║
+2026-02-25 14:59:56 | INFO     | __main__:30 - ║  Docs : http://localhost:8000/docs             ║
+2026-02-25 14:59:56 | INFO     | __main__:31 - ╚══════════════════════════════════════════════╝
+2026-02-25 14:59:58 | INFO     | src.api.app:36 - ══════════════════════════════════════════
+2026-02-25 14:59:58 | INFO     | src.api.app:37 -   Démarrage : PME Classifier API v1.0.0
+2026-02-25 14:59:58 | INFO     | src.api.app:38 - ══════════════════════════════════════════
+2026-02-25 15:00:03 | SUCCESS  | src.model.predictor:71 - Modèle chargé : C:\projets\ExamML\model\saved\classifier.joblib
+2026-02-25 15:05:30 | INFO     | src.api.routes:120 - Prédiction : 'Urgent ! Le paiement par Wave ne fonctionne pas....' → Urgence (52.5%)
+2026-02-25 15:20:58 | INFO     | src.api.routes:120 - Prédiction : 'Bonjour j’ai besoin d’aide, mon téléphone n’a plus...' → Urgence (42.8%)
+2026-02-25 15:31:40 | INFO     | src.api.routes:120 - Prédiction : 'Bonjour dieyna, mariem, j’étais entrain de tester ...' → Information (41.0%)
+2026-02-25 15:41:28 | INFO     | src.api.app:52 - Arrêt de l'application.
+2026-02-26 09:56:39 | INFO     | __main__:27 - ╔══════════════════════════════════════════════╗
+2026-02-26 09:56:39 | INFO     | __main__:28 - ║      PME Classifier — Lancement de l'API     ║
+2026-02-26 09:56:39 | INFO     | __main__:29 - ║  http://0.0.0.0:8000                        ║
+2026-02-26 09:56:39 | INFO     | __main__:30 - ║  Docs : http://localhost:8000/docs             ║
+2026-02-26 09:56:39 | INFO     | __main__:31 - ╚══════════════════════════════════════════════╝
+2026-02-26 09:56:44 | INFO     | src.api.app:36 - ══════════════════════════════════════════
+2026-02-26 09:56:44 | INFO     | src.api.app:37 -   Démarrage : PME Classifier API v1.0.0
+2026-02-26 09:56:44 | INFO     | src.api.app:38 - ══════════════════════════════════════════
+2026-02-26 09:57:31 | SUCCESS  | src.model.predictor:71 - Modèle chargé : C:\projets\ExamML\model\saved\classifier.joblib
+2026-02-26 10:05:37 | INFO     | src.api.routes:120 - Prédiction : 'Urgent ! Le paiement par Wave ne fonctionne pas....' → Urgence (52.5%)
+2026-02-26 10:09:53 | INFO     | src.api.routes:120 - Prédiction : 'Réservez-moi 10 sachets de café Nescafé....' → Commande (45.6%)
+2026-02-26 10:14:19 | INFO     | src.api.routes:120 - Prédiction : 'Réservez moi 10 sachets de café...' → Commande (45.6%)
+2026-02-26 10:28:07 | INFO     | src.api.routes:120 - Prédiction : 'Réservez-moi 10 sachets de café Nescafé....' → Commande (45.6%)
+2026-02-26 10:40:44 | INFO     | src.api.routes:120 - Prédiction : 'Réservez-moi 10 sachets de café Nescafé....' → Commande (45.6%)
+2026-02-26 10:58:55 | INFO     | src.api.routes:120 - Prédiction : 'Réservez-moi 10 sachets de café Nescafé....' → Commande (45.6%)
+2026-02-26 12:30:50 | INFO     | src.api.app:52 - Arrêt de l'application.
+2026-02-26 14:05:23 | INFO     | __main__:27 - ╔══════════════════════════════════════════════╗
+2026-02-26 14:05:23 | INFO     | __main__:28 - ║      PME Classifier — Lancement de l'API     ║
+2026-02-26 14:05:23 | INFO     | __main__:29 - ║  http://0.0.0.0:8000                        ║
+2026-02-26 14:05:23 | INFO     | __main__:30 - ║  Docs : http://localhost:8000/docs             ║
+2026-02-26 14:05:23 | INFO     | __main__:31 - ╚══════════════════════════════════════════════╝
+2026-02-26 14:05:25 | INFO     | src.api.app:36 - ══════════════════════════════════════════
+2026-02-26 14:05:25 | INFO     | src.api.app:37 -   Démarrage : PME Classifier API v1.0.0
+2026-02-26 14:05:25 | INFO     | src.api.app:38 - ══════════════════════════════════════════
+2026-02-26 14:05:31 | SUCCESS  | src.model.predictor:71 - Modèle chargé : C:\projets\ExamML\model\saved\classifier.joblib
+2026-02-26 14:06:19 | INFO     | src.api.routes:120 - Prédiction : 'Urgent ! Le paiement par Wave ne fonctionne pas....' → Urgence (52.5%)
+2026-02-26 14:10:52 | INFO     | src.api.routes:120 - Prédiction : 'Urgent ! Le paiement par Wave ne fonctionne pas....' → Urgence (52.5%)
+2026-02-26 15:03:44 | INFO     | src.api.routes:120 - Prédiction : 'Besoin d'aide MAINTENANT : doublement de facture, ...' → Urgence (49.4%)
+2026-02-26 15:04:42 | INFO     | src.api.routes:120 - Prédiction : 'Quel est votre minimum de commande pour la livrais...' → Information (40.7%)
+2026-02-26 15:10:27 | INFO     | src.api.routes:120 - Prédiction : 'Alerte : livraison perdue, besoin d'aide immédiate...' → Urgence (56.7%)
+2026-02-26 15:11:51 | INFO     | src.api.routes:120 - Prédiction : 'Le produit ne correspond pas à ce qui était affich...' → Réclamation (58.9%)
+2026-02-26 15:12:47 | INFO     | src.api.routes:120 - Prédiction : 'Vous avez des dates de péremption longues sur les ...' → Information (47.7%)
+2026-02-26 15:13:52 | INFO     | src.api.routes:120 - Prédiction : 'Je prends 4 cartons de couches Pampers taille 3....' → Commande (55.1%)
+2026-02-26 15:23:02 | INFO     | src.api.routes:120 - Prédiction : 'Le produit ne correspond pas à ce qui était affich...' → Réclamation (58.9%)
+2026-02-26 15:40:11 | INFO     | src.api.routes:120 - Prédiction : 'Je prends 4 cartons de couches Pampers taille 3....' → Commande (55.1%)
+2026-02-26 15:47:03 | INFO     | src.api.routes:120 - Prédiction : 'Commandez-moi 10 kg de viande de bœuf pour samedi....' → Commande (62.3%)
+2026-02-26 16:35:59 | INFO     | src.api.routes:120 - Prédiction : 'URGENT : ma commande est bloquée depuis 2 jours !...' → Urgence (52.2%)
+2026-02-26 16:42:54 | INFO     | src.api.routes:120 - Prédiction : 'Je commande 3 caisses de bière Flag pour ma cérémo...' → Commande (48.4%)
+2026-02-26 16:56:11 | INFO     | src.api.routes:120 - Prédiction : 'Urgent ! Le paiement par Wave ne fonctionne pas...' → Urgence (52.5%)
+2026-02-26 18:37:23 | INFO     | src.api.routes:120 - Prédiction : 'je voudrais de l'aide pour l'utilisation mon telep...' → Commande (41.9%)
+2026-02-26 18:40:35 | INFO     | src.api.routes:120 - Prédiction : 'avez vous du riz?...' → Information (63.5%)
+2026-02-26 19:05:40 | INFO     | src.api.app:52 - Arrêt de l'application.

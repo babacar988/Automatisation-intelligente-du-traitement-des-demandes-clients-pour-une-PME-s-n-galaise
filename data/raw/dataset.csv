@@ -1,0 +1,186 @@
+texte,classe
+"Bonjour, est-ce que le riz parfumé est disponible aujourd'hui ?",Information
+"Vous avez du pain frais ce matin ?",Information
+"Quels sont vos horaires d'ouverture ?",Information
+"Est-ce que vous livrez à domicile ?",Information
+"Combien coûte le sac de ciment de 50kg ?",Information
+"Vous avez du lait en stock ?",Information
+"Quelle est votre adresse exacte ?",Information
+"Est-ce que vous acceptez les paiements mobile money ?",Information
+"Vous avez des promotions en ce moment ?",Information
+"Quel est le prix du carton de tomates ?",Information
+"Bonjour, avez-vous des sachets de thé Lipton ?",Information
+"Est-ce que la boutique sera ouverte dimanche ?",Information
+"Le beurre de karité est-il disponible en stock ?",Information
+"Votre produit cosmétique est-il adapté à la peau sensible ?",Information
+"Vous vendez des produits bio ?",Information
+"Est-ce que vous avez des couches pour bébé ?",Information
+"Quel est le prix du kg de poulet ?",Information
+"Vous avez du savon Lux en stock ?",Information
+"Bonjour, est-ce que vous faites des livraisons la nuit ?",Information
+"Vous acceptez les paiements par Orange Money ?",Information
+"Avez-vous du sucre en poudre de 5kg ?",Information
+"Est-ce que vous vendez en gros ?",Information
+"Quelle est la différence entre le riz brisé et le riz entier ?",Information
+"Avez-vous une page Facebook ou Instagram ?",Information
+"Quel est votre numéro WhatsApp professionnel ?",Information
+"Est-ce que vous avez des yaourts Lait de vache ?",Information
+"Combien coûte la livraison à Pikine ?",Information
+"Vous vendez du gaz butane ?",Information
+"Avez-vous des détergents en vrac ?",Information
+"Bonjour, c'est quoi vos conditions de retour ?",Information
+"Vous avez de l'huile Jumbo 5 litres ?",Information
+"Quel est le délai de livraison habituel ?",Information
+"Avez-vous une carte de fidélité ?",Information
+"Est-ce que vous acceptez les chèques ?",Information
+"Bonjour, vous vendez du poisson séché ?",Information
+"Vous avez des articles scolaires ?",Information
+"Quel est le prix d'un carton de jus Kirène ?",Information
+"Bonjour, est-ce que vous avez du beurre de cacahuète ?",Information
+"Vous livrez dans la banlieue de Dakar ?",Information
+"Est-ce que votre boutique est climatisée ?",Information
+"Vous avez des dates de péremption longues sur les conserves ?",Information
+"Bonjour, avez-vous des boissons sans sucre ?",Information
+"Quel est votre minimum de commande pour la livraison gratuite ?",Information
+"Vous faites des prix spéciaux pour les associations ?",Information
+"Bonjour, vous avez de la farine de mil ?",Information
+"J'ai acheté du lait hier mais il était périmé.",Réclamation
+"La livraison que j'ai reçue était incomplète.",Réclamation
+"Vous m'avez envoyé le mauvais produit.",Réclamation
+"Le sac de riz que j'ai acheté était troué.",Réclamation
+"Je suis très mécontent du service, j'ai attendu 2 heures.",Réclamation
+"Le produit ne correspond pas à ce qui était affiché.",Réclamation
+"On m'a mal rendu la monnaie.",Réclamation
+"Le livreur était impoli avec moi.",Réclamation
+"J'ai trouvé un insecte dans mon paquet de farine.",Réclamation
+"La qualité de l'huile achetée est très mauvaise.",Réclamation
+"J'ai reçu un article cassé dans ma commande.",Réclamation
+"La sauce tomate achetée chez vous avait un goût bizarre.",Réclamation
+"Le vendeur m'a menti sur la date de péremption.",Réclamation
+"Mon produit commandé n'est toujours pas arrivé après 3 jours.",Réclamation
+"Le livreur a laissé ma commande devant la porte sans prévenir.",Réclamation
+"La bouteille d'eau que j'ai achetée avait une fissure.",Réclamation
+"Vous m'avez débité deux fois pour la même commande.",Réclamation
+"Le poisson que j'ai acheté n'était pas frais.",Réclamation
+"Le carton était mouillé et les produits abîmés à l'intérieur.",Réclamation
+"Je ne suis pas satisfait de la qualité du service de livraison.",Réclamation
+"Le fromage acheté était moisi avant la date limite.",Réclamation
+"Votre application mobile ne fonctionne pas correctement.",Réclamation
+"J'ai commandé en ligne et jamais reçu de confirmation.",Réclamation
+"Le pain que vous vendez devient dur trop rapidement.",Réclamation
+"Je demande un remboursement pour produit défectueux.",Réclamation
+"La réduction promise en ligne n'a pas été appliquée à ma facture.",Réclamation
+"Votre équipe de livraison a endommagé ma porte d'entrée.",Réclamation
+"Le produit reçu était différent de la photo sur le site.",Réclamation
+"J'ai signalé un problème la semaine dernière et personne ne m'a rappelé.",Réclamation
+"Le détergent acheté a décoloré mes vêtements.",Réclamation
+"Je veux commander 5 cartons d'eau minérale.",Commande
+"Je voudrais passer une commande de 10 kg de riz.",Commande
+"Pouvez-vous me livrer 2 caisses de jus de fruit ?",Commande
+"Je commande 3 bouteilles d'huile végétale.",Commande
+"Je souhaite acheter du savon en gros, 50 unités.",Commande
+"Commandez-moi un carton de lait concentré.",Commande
+"Je veux réserver 20 kg de farine pour demain.",Commande
+"Livrez-moi 4 cartons de boissons énergétiques.",Commande
+"J'aimerais acheter une palette de bouteilles d'eau.",Commande
+"Passez-moi une commande de 15 paquets de sucre.",Commande
+"Réservez-moi 10 sachets de café Nescafé.",Commande
+"Je veux commander 2 kg de viande hachée pour ce soir.",Commande
+"Pouvez-vous me préparer une commande de 8 cartons de soda ?",Commande
+"Je voudrais acheter 5 litres d'huile d'arachide.",Commande
+"Commandez pour moi 3 paquets de pâtes et 2 boîtes de sauce.",Commande
+"Je prends 20 unités de shampoing et 10 de gel douche.",Commande
+"Pouvez-vous livrer 1 sac de ciment et 2 sacs de sable ?",Commande
+"Je veux 6 yaourts et 4 bouteilles de jus de goyave.",Commande
+"Commande urgente : 50 plateaux d'œufs pour mon restaurant.",Commande
+"Je souhaite réserver un carton de tomates concentrées pour vendredi.",Commande
+"Je veux prendre 12 rouleaux de papier toilette.",Commande
+"Envoyez-moi 5 kg de café en grains.",Commande
+"Je commande 3 caisses de bière Flag pour ma cérémonie.",Commande
+"Pouvez-vous me préparer un assortiment de gâteaux secs pour 30 personnes ?",Commande
+"Je veux commander des fournitures de bureau : stylos, cahiers, rames de papier.",Commande
+"Livrez-moi 2 bidons de 20L d'eau potable.",Commande
+"Je prends 4 cartons de couches Pampers taille 3.",Commande
+"Commandez-moi 10 kg de viande de bœuf pour samedi.",Commande
+"Je souhaite acheter 2 caisses de boissons énergisantes.",Commande
+"Pouvez-vous livrer 500g de beurre et 1 litre de crème fraîche ?",Commande
+"Urgent ! Le paiement par Wave ne fonctionne pas.",Urgence
+"URGENT : ma commande est bloquée depuis 2 jours !",Urgence
+"SOS ! Vous avez envoyé des produits avariés à mon restaurant.",Urgence
+"Urgence ! Mon compte a été débité deux fois !",Urgence
+"Alerte : livraison perdue, besoin d'aide immédiatement.",Urgence
+"URGENT besoin de réponse immédiate, client bloqué !",Urgence
+"Problème critique : accès à ma commande impossible.",Urgence
+"SOS il y a une erreur dans ma facturation urgente.",Urgence
+"Urgent, la livraison pour mon événement de demain n'est pas arrivée !",Urgence
+"Besoin d'aide immédiate, le système de paiement est tombé !",Urgence
+"URGENT : je n'arrive pas à annuler ma commande qui a été débitée !",Urgence
+"Crise ! Mes produits commandés sont exposés au soleil depuis des heures.",Urgence
+"Alerte rouge : mon congélateur loué chez vous est en panne !",Urgence
+"SOS : la marchandise livrée est complètement avariée, événement dans 2h !",Urgence
+"CRITIQUE : mon restaurant est en plein service et la commande n'est pas arrivée !",Urgence
+"Urgent ! Mon numéro de suivi ne fonctionne plus et la livraison disparue.",Urgence
+"Besoin d'aide MAINTENANT : doublement de facture, 150 000 FCFA en jeu !",Urgence
+"SOS ma boutique est en rupture totale de stock à cause de votre retard.",Urgence
+"Alerte : les produits reçus sont dangereux pour la santé, arrêtez les ventes !",Urgence
+"URGENT erreur de stock : vous avez vendu des produits périmés ce matin !",Urgence
+"Je n'arrive plus à me connecter à mon espace client, commandes bloquées !",Urgence
+"Paiement Orange Money effectué mais commande toujours pas validée, URGENT !",Urgence
+"Intervention immédiate requise : livraison au mauvais client, données sensibles exposées.",Urgence
+"URGENT : produits alimentaires livrés sans chaîne du froid, risque sanitaire !",Urgence
+"Alerte fraude : quelqu'un passe des commandes avec mon compte sans autorisation !",Urgence
+"Bonjour, c'est quoi le prix du quintal de mil ?",Information
+"Vous faites des réductions pour les commandes en gros ?",Information
+"Avez-vous un catalogue de vos produits disponibles ?",Information
+"Est-ce que vous vendez des produits locaux sénégalais ?",Information
+"Vous acceptez les bons d'achat ?",Information
+"Bonjour, avez-vous du couscous de mil ?",Information
+"Quelle est la durée de validité de votre bon de livraison ?",Information
+"Avez-vous un service après-vente ?",Information
+"Puis-je commander par téléphone ?",Information
+"Est-ce que vous avez des produits sans gluten ?",Information
+"Votre boutique est accessible aux personnes à mobilité réduite ?",Information
+"Quel moyen de paiement est le plus sécurisé chez vous ?",Information
+"Avez-vous un programme de parrainage client ?",Information
+"Vous vendez du bissap séché ?",Information
+"Est-ce que vous avez du thiébou yapp en conserve ?",Information
+"J'ai reçu une mauvaise commande et je veux un échange.",Réclamation
+"Votre livreur n'a pas respecté l'heure convenue.",Réclamation
+"La viande commandée était de mauvaise qualité.",Réclamation
+"Mon colis est arrivé ouvert et certains produits manquaient.",Réclamation
+"Le prix facturé ne correspond pas au prix affiché en ligne.",Réclamation
+"Je n'ai toujours pas reçu ma facture depuis 5 jours.",Réclamation
+"Votre service client ne répond jamais au téléphone.",Réclamation
+"Le produit acheté a causé une réaction allergique.",Réclamation
+"La commande groupée de mon association était incomplète.",Réclamation
+"Je réclame le remboursement de frais de livraison injustifiés.",Réclamation
+"Le sac de farine avait une odeur suspecte.",Réclamation
+"Votre application m'a débité sans confirmer la commande.",Réclamation
+"Le code promo indiqué sur votre page n'a pas fonctionné.",Réclamation
+"Mon colis a été livré à la mauvaise adresse.",Réclamation
+"La date de péremption sur le produit a été effacée.",Réclamation
+"Je commande 100 briques de jus de fruit pour une école.",Commande
+"Livraison de 3 cartons de lait Nestlé pour demain matin.",Commande
+"Je veux acheter une glacière et 10 kg de glace artificielle.",Commande
+"Préparez-moi un panier cadeau pour 15 000 FCFA.",Commande
+"Je prends 6 bouteilles de vin rouge pour une réception.",Commande
+"Commandez-moi 2 caisses de biscuits LU.",Commande
+"Je voudrais 5 kg de piment frais et 3 kg d'oignons.",Commande
+"Livrez-moi une palanche de poissons frais pour ce soir.",Commande
+"Je veux 4 packs de lait UHT demi-écrémé.",Commande
+"Commandez pour moi 20 sachets de sucre de 1kg.",Commande
+"Passez ma commande mensuelle habituelle : riz, huile, sucre, savon.",Commande
+"Je veux acheter un réfrigérateur 200L disponible en magasin.",Commande
+"Livrez-moi 50 bouteilles d'eau plate 1,5L pour un séminaire.",Commande
+"Je commande 3 paquets de couches et 2 boîtes de lait bébé.",Commande
+"Réservez-moi 10 plateaux de dattes pour l'Aïd.",Commande
+"CRITIQUE ! Votre livreur a eu un accident avec ma commande à bord.",Urgence
+"SOS : fraude détectée sur mon compte PME, transactions non autorisées !",Urgence
+"Urgence sanitaire : produits vendus ce matin rappelés par le fabricant !",Urgence
+"URGENT : caisse enregistreuse en panne, clients bloqués en file d'attente !",Urgence
+"Alerte immédiate : le camion de livraison est coincé, événement dans 1h !",Urgence
+"SOS : rupture totale de gaz dans notre restaurant, service arrêté !",Urgence
+"Besoin urgent d'intervention : incendie dans l'entrepôt de stockage !",Urgence
+"URGENT : client hospitalisé après consommation d'un produit de votre stock.",Urgence
+"Alerte : colis volé par le livreur, j'ai les preuves vidéo !",Urgence
+"SOS : commande pour mariage de 500 personnes non livrée, cérémonie dans 3h !",Urgence
